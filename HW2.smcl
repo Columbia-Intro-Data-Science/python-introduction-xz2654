@@ -1,0 +1,298 @@
+{smcl}
+{com}{sf}{ul off}{txt}{.-}
+      name:  {res}<unnamed>
+       {txt}log:  {res}C:\Users\Xinyu\Documents\HW2.smcl
+  {txt}log type:  {res}smcl
+ {txt}opened on:  {res}17 Oct 2016, 22:26:09
+
+{com}. import excel "C:\Users\Xinyu\Desktop\HW2 Data.xlsx", sheet("Sheet1") firstrow
+{res}
+{com}. rename v1 t
+{res}
+{com}. 
+. rename v2 year
+{res}
+{com}. 
+. rename v3 quarter
+{res}
+{com}. 
+. rename v4 income
+{res}
+{com}. 
+. rename v5 consumption
+{res}
+{com}. regress income
+
+{txt}      Source {c |}       SS           df       MS      Number of obs   ={res}       200
+{txt}{hline 13}{c +}{hline 34}   F(0, 199)       = {res}     0.00
+{txt}       Model {c |} {res}          0         0           .   {txt}Prob > F        ={res}         .
+{txt}    Residual {c |} {res} 2.7217e+12       199  1.3677e+10   {txt}R-squared       ={res}    0.0000
+{txt}{hline 13}{c +}{hline 34}   Adj R-squared   ={res}    0.0000
+{txt}       Total {c |} {res} 2.7217e+12       199  1.3677e+10   {txt}Root MSE        =   {res} 1.2e+05
+
+{txt}{hline 13}{c TT}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{col 1}      income{col 14}{c |}      Coef.{col 26}   Std. Err.{col 38}      t{col 46}   P>|t|{col 54}     [95% Con{col 67}f. Interval]
+{hline 13}{c +}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{space 7}_cons {c |}{col 14}{res}{space 2} 213507.8{col 26}{space 2} 8269.533{col 37}{space 1}   25.82{col 46}{space 3}0.000{col 54}{space 4} 197200.7{col 67}{space 3}   229815
+{txt}{hline 13}{c BT}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{res}
+{com}. predict Miotaincome, res
+
+. regress consumption
+
+{txt}      Source {c |}       SS           df       MS      Number of obs   ={res}       200
+{txt}{hline 13}{c +}{hline 34}   F(0, 199)       = {res}     0.00
+{txt}       Model {c |} {res}          0         0           .   {txt}Prob > F        ={res}         .
+{txt}    Residual {c |} {res} 2.0347e+12       199  1.0225e+10   {txt}R-squared       ={res}    0.0000
+{txt}{hline 13}{c +}{hline 34}   Adj R-squared   ={res}    0.0000
+{txt}       Total {c |} {res} 2.0347e+12       199  1.0225e+10   {txt}Root MSE        =   {res} 1.0e+05
+
+{txt}{hline 13}{c TT}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{col 1} consumption{col 14}{c |}      Coef.{col 26}   Std. Err.{col 38}      t{col 46}   P>|t|{col 54}     [95% Con{col 67}f. Interval]
+{hline 13}{c +}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{space 7}_cons {c |}{col 14}{res}{space 2} 189998.8{col 26}{space 2}  7150.06{col 37}{space 1}   26.57{col 46}{space 3}0.000{col 54}{space 4} 175899.2{col 67}{space 3} 204098.4
+{txt}{hline 13}{c BT}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{res}
+{com}. predict Miotaconsumption, res
+
+. plot Miotaincome t
+{res}
+  178040 {txt}+  
+         |                                                              *
+         |                                                      ***********
+         |                                                      *
+         |                                                    **
+         |                                                *****
+    {res}R    {txt}|                                            *****
+    {res}e    {txt}|                                          ***  *
+    {res}s    {txt}|                                        ***
+    {res}i    {txt}|                                      ***
+    {res}d    {txt}|                                     *
+    {res}u    {txt}|                                   **
+    {res}a    {txt}|                                  *
+    {res}l    {txt}|                                **
+    {res}s    {txt}|                              ***
+         |                          *****
+         |                        ***
+         |                    ****
+         |              ******
+         |        *******
+{res} -154469 {txt}+ ********
+          +----------------------------------------------------------------+
+         {res}       1                       v1                            200
+
+
+{com}. plot income t
+{res}
+  391548 {txt}+  
+         |  
+         |                                                      ***********
+         |                                                      *
+         |                                                    **
+         |                                                *****
+         |                                            *****
+         |                                          ***  *
+         |                                        ***
+    {res}v    {txt}|                                      ***
+    {res}4    {txt}|                                     *
+         |                                   **
+         |                                  *
+         |                                **
+         |                              ***
+         |                          *****
+         |                        ***
+         |                    ****
+         |              ******
+         |        *******
+{res} 59039.1 {txt}+ ********
+          +----------------------------------------------------------------+
+         {res}       1                       v1                            200
+
+
+{com}. regress consumption income
+
+{txt}      Source {c |}       SS           df       MS      Number of obs   ={res}       200
+{txt}{hline 13}{c +}{hline 34}   F(1, 198)       = {res} 30010.04
+{txt}       Model {c |} {res} 2.0214e+12         1  2.0214e+12   {txt}Prob > F        ={res}    0.0000
+{txt}    Residual {c |} {res} 1.3337e+10       198  67356564.2   {txt}R-squared       ={res}    0.9934
+{txt}{hline 13}{c +}{hline 34}   Adj R-squared   ={res}    0.9934
+{txt}       Total {c |} {res} 2.0347e+12       199  1.0225e+10   {txt}Root MSE        =   {res} 8207.1
+
+{txt}{hline 13}{c TT}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{col 1} consumption{col 14}{c |}      Coef.{col 26}   Std. Err.{col 38}      t{col 46}   P>|t|{col 54}     [95% Con{col 67}f. Interval]
+{hline 13}{c +}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{space 6}income {c |}{col 14}{res}{space 2} .8617885{col 26}{space 2} .0049747{col 37}{space 1}  173.23{col 46}{space 3}0.000{col 54}{space 4} .8519783{col 67}{space 3} .8715987
+{txt}{space 7}_cons {c |}{col 14}{res}{space 2} 6000.256{col 26}{space 2} 1210.339{col 37}{space 1}    4.96{col 46}{space 3}0.000{col 54}{space 4} 3613.446{col 67}{space 3} 8387.066
+{txt}{hline 13}{c BT}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{res}
+{com}. predict reshat1, res
+
+. regress consumption Miotaincome
+
+{txt}      Source {c |}       SS           df       MS      Number of obs   ={res}       200
+{txt}{hline 13}{c +}{hline 34}   F(1, 198)       = {res} 30010.03
+{txt}       Model {c |} {res} 2.0214e+12         1  2.0214e+12   {txt}Prob > F        ={res}    0.0000
+{txt}    Residual {c |} {res} 1.3337e+10       198  67356568.5   {txt}R-squared       ={res}    0.9934
+{txt}{hline 13}{c +}{hline 34}   Adj R-squared   ={res}    0.9934
+{txt}       Total {c |} {res} 2.0347e+12       199  1.0225e+10   {txt}Root MSE        =   {res} 8207.1
+
+{txt}{hline 13}{c TT}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{col 1} consumption{col 14}{c |}      Coef.{col 26}   Std. Err.{col 38}      t{col 46}   P>|t|{col 54}     [95% Con{col 67}f. Interval]
+{hline 13}{c +}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{space 1}Miotaincome {c |}{col 14}{res}{space 2} .8617885{col 26}{space 2} .0049747{col 37}{space 1}  173.23{col 46}{space 3}0.000{col 54}{space 4} .8519783{col 67}{space 3} .8715987
+{txt}{space 7}_cons {c |}{col 14}{res}{space 2} 189998.8{col 26}{space 2} 580.3299{col 37}{space 1}  327.40{col 46}{space 3}0.000{col 54}{space 4} 188854.4{col 67}{space 3} 191143.3
+{txt}{hline 13}{c BT}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{res}
+{com}. regress consumption Miotaincome, nonconstant
+{err}option {bf:nonconstant} not allowed
+{txt}{search r(198):r(198);}
+
+{com}. regress consumption Miotaincome, noconstant
+
+{txt}      Source {c |}       SS           df       MS      Number of obs   ={res}       200
+{txt}{hline 13}{c +}{hline 34}   F(1, 199)       = {res}    55.61
+{txt}       Model {c |} {res} 2.0214e+12         1  2.0214e+12   {txt}Prob > F        ={res}    0.0000
+{txt}    Residual {c |} {res} 7.2332e+12       199  3.6348e+10   {txt}R-squared       ={res}    0.2184
+{txt}{hline 13}{c +}{hline 34}   Adj R-squared   ={res}    0.2145
+{txt}       Total {c |} {res} 9.2546e+12       200  4.6273e+10   {txt}Root MSE        =   {res} 1.9e+05
+
+{txt}{hline 13}{c TT}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{col 1} consumption{col 14}{c |}      Coef.{col 26}   Std. Err.{col 38}      t{col 46}   P>|t|{col 54}     [95% Con{col 67}f. Interval]
+{hline 13}{c +}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{space 1}Miotaincome {c |}{col 14}{res}{space 2} .8617885{col 26}{space 2} .1155627{col 37}{space 1}    7.46{col 46}{space 3}0.000{col 54}{space 4} .6339039{col 67}{space 3} 1.089673
+{txt}{hline 13}{c BT}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{res}
+{com}. predict reshat2, res
+
+. regress Miotaconsumption Miotaincome, noconstant
+
+{txt}      Source {c |}       SS           df       MS      Number of obs   ={res}       200
+{txt}{hline 13}{c +}{hline 34}   F(1, 199)       = {res} 30161.60
+{txt}       Model {c |} {res} 2.0214e+12         1  2.0214e+12   {txt}Prob > F        ={res}    0.0000
+{txt}    Residual {c |} {res} 1.3337e+10       199  67018087.1   {txt}R-squared       ={res}    0.9934
+{txt}{hline 13}{c +}{hline 34}   Adj R-squared   ={res}    0.9934
+{txt}       Total {c |} {res} 2.0347e+12       200  1.0174e+10   {txt}Root MSE        =   {res} 8186.5
+
+{txt}{hline 13}{c TT}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{col 1}Miotaconsu~n{col 14}{c |}      Coef.{col 26}   Std. Err.{col 38}      t{col 46}   P>|t|{col 54}     [95% Con{col 67}f. Interval]
+{hline 13}{c +}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{space 1}Miotaincome {c |}{col 14}{res}{space 2} .8617885{col 26}{space 2} .0049622{col 37}{space 1}  173.67{col 46}{space 3}0.000{col 54}{space 4} .8520032{col 67}{space 3} .8715737
+{txt}{hline 13}{c BT}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{res}
+{com}. predict reshat3, res
+
+. edit reshat1
+
+. edit reshat2
+
+. edit reshat3
+
+. regress consumption income, robust
+
+{txt}Linear regression                               Number of obs     = {res}       200
+                                                {txt}F(1, 198)         =  {res} 24087.13
+                                                {txt}Prob > F          = {res}    0.0000
+                                                {txt}R-squared         = {res}    0.9934
+                                                {txt}Root MSE          =    {res} 8207.1
+
+{txt}{hline 13}{c TT}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{col 14}{c |}{col 26}    Robust
+{col 1} consumption{col 14}{c |}      Coef.{col 26}   Std. Err.{col 38}      t{col 46}   P>|t|{col 54}     [95% Con{col 67}f. Interval]
+{hline 13}{c +}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{space 6}income {c |}{col 14}{res}{space 2} .8617885{col 26}{space 2} .0055527{col 37}{space 1}  155.20{col 46}{space 3}0.000{col 54}{space 4} .8508383{col 67}{space 3} .8727386
+{txt}{space 7}_cons {c |}{col 14}{res}{space 2} 6000.256{col 26}{space 2} 791.7111{col 37}{space 1}    7.58{col 46}{space 3}0.000{col 54}{space 4} 4438.988{col 67}{space 3} 7561.524
+{txt}{hline 13}{c BT}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{res}
+{com}. regress consumption income
+
+{txt}      Source {c |}       SS           df       MS      Number of obs   ={res}       200
+{txt}{hline 13}{c +}{hline 34}   F(1, 198)       = {res} 30010.04
+{txt}       Model {c |} {res} 2.0214e+12         1  2.0214e+12   {txt}Prob > F        ={res}    0.0000
+{txt}    Residual {c |} {res} 1.3337e+10       198  67356564.2   {txt}R-squared       ={res}    0.9934
+{txt}{hline 13}{c +}{hline 34}   Adj R-squared   ={res}    0.9934
+{txt}       Total {c |} {res} 2.0347e+12       199  1.0225e+10   {txt}Root MSE        =   {res} 8207.1
+
+{txt}{hline 13}{c TT}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{col 1} consumption{col 14}{c |}      Coef.{col 26}   Std. Err.{col 38}      t{col 46}   P>|t|{col 54}     [95% Con{col 67}f. Interval]
+{hline 13}{c +}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{space 6}income {c |}{col 14}{res}{space 2} .8617885{col 26}{space 2} .0049747{col 37}{space 1}  173.23{col 46}{space 3}0.000{col 54}{space 4} .8519783{col 67}{space 3} .8715987
+{txt}{space 7}_cons {c |}{col 14}{res}{space 2} 6000.256{col 26}{space 2} 1210.339{col 37}{space 1}    4.96{col 46}{space 3}0.000{col 54}{space 4} 3613.446{col 67}{space 3} 8387.066
+{txt}{hline 13}{c BT}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{res}
+{com}. predict residual, res
+
+. scatter residual income, ytitle(”Residuals”) xtitle(”Income”)
+{res}
+{com}. graph export "C:\Users\Xinyu\Desktop\ECON4261\Homework\Graph HW2.png", as(png) replace
+{txt}(note: file C:\Users\Xinyu\Desktop\ECON4261\Homework\Graph HW2.png not found)
+(file C:\Users\Xinyu\Desktop\ECON4261\Homework\Graph HW2.png written in PNG format)
+
+{com}. generate incomet-1 = income[ n − 1]
+{err}invalid syntax
+{txt}{search r(198):r(198);}
+
+{com}. generate previousincome = income[ n − 1]
+{err}n−1 not found
+{txt}{search r(111):r(111);}
+
+{com}. generate previousincome = income[_n − 1]
+{err}_n−1 not found
+{txt}{search r(111):r(111);}
+
+{com}. generate previousincome = income[__n − 1]
+{err}__n−1 not found
+{txt}{search r(111):r(111);}
+
+{com}. gen previousincome = income[_n-1]
+{txt}(1 missing value generated)
+
+{com}. gen previousconsumption = consumption[_n-1]
+{txt}(1 missing value generated)
+
+{com}. regress consumption income previousincome previousconsumption
+
+{txt}      Source {c |}       SS           df       MS      Number of obs   ={res}       199
+{txt}{hline 13}{c +}{hline 34}   F(3, 195)       > {res} 99999.00
+{txt}       Model {c |} {res} 2.0162e+12         3  6.7208e+11   {txt}Prob > F        ={res}    0.0000
+{txt}    Residual {c |} {res}  729409742       195  3740562.78   {txt}R-squared       ={res}    0.9996
+{txt}{hline 13}{c +}{hline 34}   Adj R-squared   ={res}    0.9996
+{txt}       Total {c |} {res} 2.0170e+12       198  1.0187e+10   {txt}Root MSE        =   {res} 1934.1
+
+{txt}{hline 20}{c TT}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{col 1}        consumption{col 21}{c |}      Coef.{col 33}   Std. Err.{col 45}      t{col 53}   P>|t|{col 61}     [95% Con{col 74}f. Interval]
+{hline 20}{c +}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{space 13}income {c |}{col 21}{res}{space 2} .2248428{col 33}{space 2} .0432709{col 44}{space 1}    5.20{col 53}{space 3}0.000{col 61}{space 4} .1395037{col 74}{space 3}  .310182
+{txt}{space 5}previousincome {c |}{col 21}{res}{space 2}  -.21828{col 33}{space 2} .0446791{col 44}{space 1}   -4.89{col 53}{space 3}0.000{col 61}{space 4}-.3063963{col 74}{space 3}-.1301637
+{txt}previousconsumption {c |}{col 21}{res}{space 2} .9957285{col 33}{space 2} .0174179{col 44}{space 1}   57.17{col 53}{space 3}0.000{col 61}{space 4} .9613769{col 74}{space 3}  1.03008
+{txt}{space 14}_cons {c |}{col 21}{res}{space 2} 618.4252{col 33}{space 2} 310.5112{col 44}{space 1}    1.99{col 53}{space 3}0.048{col 61}{space 4} 6.033818{col 74}{space 3} 1230.817
+{txt}{hline 20}{c BT}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{res}
+{com}. predict residual_t, res
+{txt}(1 missing value generated)
+
+{com}. scatter residual_t t, ytitle(”Residuals”) xtitle(”Time”)
+{res}
+{com}. 
+. graph export "C:\Users\Xinyu\Desktop\ECON4261\Homework\Graph HW2 P5.2.png", as(png) replace
+{txt}(note: file C:\Users\Xinyu\Desktop\ECON4261\Homework\Graph HW2 P5.2.png not found)
+(file C:\Users\Xinyu\Desktop\ECON4261\Homework\Graph HW2 P5.2.png written in PNG format)
+
+{com}. view HW2.smcl
+
+. 
+
+. log using HW2
+{err}log file already open
+{txt}{search r(604):r(604);}
+
+{com}. import excel "C:\Users\Xinyu\Desktop\HW2 Data.xlsx", sheet("Sheet1") firstrow
+{res}{err}no; data in memory would be lost
+{res}{txt}{search r(4):r(4);}
+
+{com}. rename v1 t
+{res}{err}variable {bf}v1{sf} not found
+{txt}{search r(111):r(111);}
+
+{com}. 
+
+. exit, clear
