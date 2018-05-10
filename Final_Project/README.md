@@ -15,5 +15,7 @@ We use [MovieLens-Latest](https://grouplens.org/datasets/movielens/) and [HetRec
 ## Analysis/Work
 Please find the [IPython file](https://github.com/Columbia-Intro-Data-Science/python-introduction-xz2654/blob/master/Final_Project/Analysis_Notebook.ipynb) illustrating our analysis and work.
 
+(Note: there are some markdown formulas in this notebook file. You may need to download it to read it)
+
 ## Web App
 [Our website](http://lin2yu.pythonanywhere.com)
