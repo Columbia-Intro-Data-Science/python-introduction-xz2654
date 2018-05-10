@@ -15,4 +15,4 @@ We use [MovieLens Latest Dataset](https://grouplens.org/datasets/movielens/) fro
 Please find the [IPython file]() illustrating our analysis and work.
 
 ## Web App
-[Our website](lin2yu.pythonanywhere.com)
+[Our website](http://lin2yu.pythonanywhere.com)
